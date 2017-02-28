@@ -1,15 +1,17 @@
 require 'active_support'
 require 'active_support/core_ext'
 require 'active_support/inflector'
+require 'active_record'
 require 'cgi'
 require 'erb'
 require 'json'
 require 'pg'
 require 'rack'
 require 'uri'
+require_relative 'router'
+require_relative 'controller/controller_base'
 
-require 'router'
-require 'controller/controller_base'
+
 
 module theRocks
 

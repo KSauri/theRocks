@@ -11,6 +11,9 @@ class Route
   end
 
   def matches?(req)
+    if req.params["_method"]
+      return true if req.params["_method"].downcase.to_sym == @http_method
+    end
     req.path =~ @pattern && req.request_method.downcase.to_sym == @http_method
   end
 

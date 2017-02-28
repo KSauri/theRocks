@@ -17,7 +17,7 @@ class Session
   end
 
   def []=(key, val)
-    @cookies[key] = val.to_sym
+    @cookies[key] = val
   end
 
   def store_session(res)
