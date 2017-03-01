@@ -3,19 +3,12 @@ require_relative 'controller/controller_base'
 require_relative 'router'
 require_relative 'static'
 require_relative '../app/controllers/dogs_controller'
-
-router = Router.new
-router.draw do
-  get Regexp.new("^/dogs$"), DogsController, :index
-  get Regexp.new("^/dogs/new$"), DogsController, :new
-  delete Regexp.new("^/dogs$"), DogsController, :destroy
-  post Regexp.new("^/dogs$"), DogsController, :create
-end
+require_relative '../config/routes'
 
 app = Proc.new do |env|
   req = Rack::Request.new(env)
   res = Rack::Response.new
-  router.run(req, res)
+  ROUTER.run(req, res)
   res.finish
 end
 
