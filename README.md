@@ -58,7 +58,8 @@ you want to use.
 
 ### Example Usage
 
-`require_relative '../../lib/controller/controller_base'
+```ruby
+require_relative '../../lib/controller/controller_base'
 require_relative '../../lib/controller/session'
 
 class DogsController < ControllerBase
@@ -90,7 +91,8 @@ class DogsController < ControllerBase
     session["dogs"].delete(params["dog"]["url"])
     redirect_to "/dogs"
   end
-end`
+end
+```
 
 ### Creating a new View
 
@@ -105,14 +107,16 @@ so you can use `<% %>` and `<%= %>` methods in your views.
 theRocks' `router` allows users to designate their routes using
 Regex:
 
-`ROUTER = Router.new
+```ruby
+ROUTER = Router.new
 
 ROUTER.draw do
   get Regexp.new("^/dogs$"), DogsController, :index
   get Regexp.new("^/dogs/new$"), DogsController, :new
   delete Regexp.new("^/dogs$"), DogsController, :destroy
   post Regexp.new("^/dogs$"), DogsController, :create
-end`
+end
+```
 
 ### Additional Middleware
 
