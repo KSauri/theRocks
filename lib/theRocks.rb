@@ -1,38 +1,22 @@
-require 'active_support'
-require 'active_support/core_ext'
-require 'active_support/inflector'
-require 'active_record'
-require 'cgi'
-require 'erb'
-require 'json'
-require 'pg'
 require 'rack'
-require 'uri'
-require_relative 'router'
 require_relative 'controller/controller_base'
+require_relative 'router'
+require_relative 'static'
+require_relative '../config/routes'
 
-
-
-module theRocks
-
-  def self.app
-
-
-    app = Proc.new do |env|
-      req = Rack::Request.new(env)
-      res = Rack::Response.new
-      theRocks::Router.run(req, res)
-      res.finish
-    end
-
-    Rack::Builder.new do
-      use Static
-      run app
-    end
-  end
-
-  def self.root=(root)
-    const_set(:ROOT, root)
-  end
-
+app = Proc.new do |env|
+  req = Rack::Request.new(env)
+  res = Rack::Response.new
+  ROUTER.run(req, res)
+  res.finish
 end
+
+app = Rack::Builder.new do
+  use Static
+  run app
+end.to_app
+
+Rack::Server.start(
+  app: app,
+  Port: 8080
+)

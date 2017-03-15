@@ -1,8 +1,8 @@
 require 'rack'
-require_relative 'controller/controller_base'
-require_relative 'router'
-require_relative 'static'
-require_relative '../app/controllers/dogs_controller'
+require_relative '../lib/controller/controller_base'
+require_relative '../lib/router'
+require_relative '../lib/static'
+require_relative './app/controllers/dogs_controller'
 require_relative '../config/routes'
 
 app = Proc.new do |env|

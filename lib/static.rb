@@ -33,7 +33,9 @@ class ContentServer
     '.txt' => 'text/plain',
     '.jpg' => 'image/jpeg',
     '.zip' => 'application/zip',
-    '.gif' => 'image/gif'
+    '.gif' => 'image/gif',
+    '.css' => 'text/css',
+    '.js' => 'text/javascript'
   }
 
   def initialize(root)
