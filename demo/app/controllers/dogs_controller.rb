@@ -22,6 +22,10 @@ class DogsController < ControllerBase
     redirect_to "/dogs"
   end
 
+  def create2
+    
+  end
+
   def destroy
     session["dogs"].delete(params["dog"]["url"])
     redirect_to "/dogs"

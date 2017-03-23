@@ -7,16 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   </head>
   <body>
-
       <h1>RARE PUPPERS</h1>
       <a href="/dogs/new">New Pupper!</a>
       <% count = 0 %>
       <div class="pupper">
         <% @dogs.each do |dog| %>
         <div class="">
-          <img src=<%=dog%> />
+          <img src=<%= dog %> />
         </div>
-          <% if count > 6 %>
+          <% if count > 7 %>
             <form action="/dogs" method="POST">
               <input type="hidden" name="_method" value="DELETE" />
               <input type="hidden" name="dog[url]" value=<%= dog %> />
@@ -25,8 +24,6 @@
           <% end %>
           <% count += 1 %>
         <% end %>
-      </div>
-      <div class="gallery">
       </div>
   </body>
 </html>
