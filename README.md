@@ -1,7 +1,7 @@
 theRocks
 =====
 
-theRocks is a lightweight and agile MVC framework, allowing you
+theRocks is a lightweight and agile framework that allows you
 to route HTTP requests and generate HTTP responses easily.  theRocks was
 inspired by Rails (Ruby on theRocks) and has a simple to use
 interface so your app can get off the ground and onto theRocks!
