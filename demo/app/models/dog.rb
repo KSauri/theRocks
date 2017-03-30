@@ -16,15 +16,10 @@ db = SQLite3::Database.new 'dogs.db'
 dogs = db.execute <<-SQL
   CREATE TABLE dogs (
     name VARCHAR(30),
-    age INT
+    url VARCHAR(30)
   );
 SQL
 
 DOGS.each do |pair|
   db.execute 'insert into dogs values (?, ?)', pair
-end
-
-
-db.execute 'SELECT * FROM dogs' do |row|
-  p row
 end
